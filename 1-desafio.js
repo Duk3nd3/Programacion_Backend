@@ -41,7 +41,7 @@ class ProductManager {
 		const searchProduct = this.products.find((stock) => stock.id === idProduct);
 		const message = searchProduct
 			? `Producto con id ${idProduct} encontrado.`
-			: `Producto con id ${idProduct} no encontrado.`;
+			: `ERROR: Producto con id ${idProduct} no encontrado.`;
 		return message;
 	}
 }
