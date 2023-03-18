@@ -4,7 +4,7 @@ class ProductManager {
 		this.uniqueId = 1;
 	}
 
-	//Este método recibe un objeto product
+	//Metodo addProduct
 	addProduct = (product) => {
 		//Antes de agregar el producto, validamos que todos los campos obligatorios existan.
 		if (
@@ -20,11 +20,11 @@ class ProductManager {
 		}
 
 		////Valida que el campo code sea único en los productos existentes
-		if (this.products.some((stock) => stock.code === product.code)) {
-			return console.error(
-				`ERROR: El codigo ${product.code} ya se encuentra en uso.`
-			);
-		}
+		this.products.some((stock) => stock.code === product.code)
+			? console.error(
+					`ERROR: El codigo ${product.code} ya se encuentra en uso.`
+			  )
+			: null;
 
 		//Asignamos el proximo uniqueId [ID autoincremental] disponible al producto
 		product.id = this.uniqueId++;
@@ -39,12 +39,10 @@ class ProductManager {
 	//Este método recibe un ID y busca un producto en el arreglo que contenga ese ID. Si lo encuentra, devuelve el producto. Sino muestra un error por consola.
 	getProductById(idProduct) {
 		const searchProduct = this.products.find((stock) => stock.id === idProduct);
-		if (searchProduct) {
-			return searchProduct;
-		} else {
-			console.error('ERROR: ');
-		}
-		return `Producto con id ${idProduct}, no encontrado.`;
+		const message = searchProduct
+			? `Producto con id ${idProduct} encontrado.`
+			: `Producto con id ${idProduct} no encontrado.`;
+		return message;
 	}
 }
 
@@ -66,10 +64,10 @@ productManager.addProduct({
 });
 
 //Llamamos al metodo 'getProducts' con los productos recien agregados
-const emptySlotError = productManager.getProducts();
-console.log(emptySlotError);
+const pushProducts = productManager.getProducts();
+console.log(pushProducts);
 
-//Forzamos el error en base al campo CODE el cual deberia estar duplicado
+//Forzamos el error en base al campo CODE por duplicidad
 productManager.addProduct({
 	title: 'Atari',
 	description: 'Atari tambien conocido como Atari Corporation',
