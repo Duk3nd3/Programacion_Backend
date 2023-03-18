@@ -16,14 +16,12 @@ class ProductManager {
 			!product.stock
 		) {
 			//Caso contrario, hay tabla
-			return console.error('Todos los campos son requeridos.');
+			return console.log('WARNING: Todos los campos son requeridos.');
 		}
 
 		////Valida que el campo code sea único en los productos existentes
 		this.products.some((stock) => stock.code === product.code)
-			? console.error(
-					`ERROR: El codigo ${product.code} ya se encuentra en uso.`
-			  )
+			? console.log(`ERROR: El codigo ${product.code} ya se encuentra en uso.`)
 			: null;
 
 		//Asignamos el proximo uniqueId [ID autoincremental] disponible al producto
@@ -40,7 +38,7 @@ class ProductManager {
 	getProductById(idProduct) {
 		const searchProduct = this.products.find((stock) => stock.id === idProduct);
 		const message = searchProduct
-			? `Producto con id ${idProduct} encontrado.`
+			? `SUCCESS: Producto con id ${idProduct} encontrado.`
 			: `ERROR: Producto con id ${idProduct} no encontrado.`;
 		return message;
 	}
@@ -72,6 +70,16 @@ productManager.addProduct({
 	title: 'Atari',
 	description: 'Atari tambien conocido como Atari Corporation',
 	price: 250,
+	thumbnail: 'http://www.atari.com/logo.png',
+	code: 'AT2600',
+	stock: 41,
+});
+
+//Forzamos el error en base a dejar un campo vacio
+productManager.addProduct({
+	title: 'Atari',
+	description: 'Atari tambien conocido como Atari Corporation',
+	price: '',
 	thumbnail: 'http://www.atari.com/logo.png',
 	code: 'AT2600',
 	stock: 41,
