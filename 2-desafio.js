@@ -111,7 +111,7 @@ class ProductManager {
 			return;
 		}
 
-		//Caso contrario, eliminamos el producto [segun su ID]
+		// Caso contrario, eliminamos el producto [segun su ID]
 		this.products.splice(productIndex, 1);
 		await this.saveProducts();
 		console.log(`SUCCESS: Producto con id ${id} eliminado.`);
