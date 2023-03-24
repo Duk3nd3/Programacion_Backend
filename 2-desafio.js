@@ -144,7 +144,7 @@ const product = {
 	stock: 25,
 };
 
-//Instanciamos la clase
+// Instanciamos la clase
 const main = async () => {
 	try {
 		const productManager = new ProductManager(
