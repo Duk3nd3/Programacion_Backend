@@ -93,11 +93,16 @@ class ProductManager {
 			(product) => product.id === id
 		);
 
+		// El metodo 'findIndex' devolvera -1
+		// Si la condicion de busqueda NO se cumple
 		if (productIndex === -1) {
 			console.log(`ERROR: Producto con id ${id} no encontrado.`);
 			return null;
 		}
 
+		// Almacenamos el/los valor/es de actualizacion '...updatedFields'
+		// Contra el producto afectado 'productIndex' almacenando su actualizacion
+		// En un nuevo objeto llamado 'updatedProduct'
 		const updatedProduct = { ...this.products[productIndex], ...updatedFields };
 		this.products[productIndex] = updatedProduct;
 		await this.saveProducts();
