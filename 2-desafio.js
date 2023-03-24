@@ -186,7 +186,7 @@ const main = async () => {
 
 		// Actualizar un producto por su ID
 		const updatedProductFields = {
-			price: 300,
+			price: 1300,
 		};
 		await productManager.updateProductById(id, updatedProductFields);
 
