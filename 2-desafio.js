@@ -56,7 +56,7 @@ class ProductManager {
 		this.products.some((stock) => stock.code === product.code) &&
 			console.log(`ERROR: El código ${product.code} ya está en uso.`);
 
-		//Al pasar 'la validacion', ahora realizar el 'push' del producto con su nuevo ID
+		// Al pasar 'la validacion', ahora realizar el 'push' del producto con su nuevo ID
 		this.products.push({ id: this.products.length + 1, ...product });
 		await this.saveProducts();
 		return console.log(`SUCCESS: Producto agregado.`);
