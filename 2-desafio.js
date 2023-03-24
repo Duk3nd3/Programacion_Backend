@@ -120,8 +120,7 @@ class ProductManager {
 		);
 
 		// Si no encontramos el producto por ID, devolvemos un error
-		// Como indicamos mas arriba el metodo 'findIndex' devolvera -1
-		// Sino se cumple la condicion
+		// El metodo 'findIndex' devolvera -1 sino cumple la condicion
 		if (productIndex === -1) {
 			console.log(`ERROR: Producto con id ${id} no encontrado.`);
 			return;
