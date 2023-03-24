@@ -111,6 +111,8 @@ class ProductManager {
 	}
 
 	// Eliminar producto por su ID
+	// En este caso se forzo el ID a 1, pero puede ser cualquiera
+	// Si se generan varios productos
 	async deleteProductById(id) {
 		await this.loadProducts();
 		const productIndex = this.products.findIndex(
@@ -118,6 +120,8 @@ class ProductManager {
 		);
 
 		// Si no encontramos el producto por ID, devolvemos un error
+		// Como indicamos mas arriba el metodo 'findIndex' devolvera -1
+		// Sino se cumple la condicion
 		if (productIndex === -1) {
 			console.log(`ERROR: Producto con id ${id} no encontrado.`);
 			return;
