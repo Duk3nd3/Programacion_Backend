@@ -105,7 +105,7 @@ class ProductManager {
 			(product) => product.id === id
 		);
 
-		//Si no encontramos el producto por ID, devolvemos un error
+		// Si no encontramos el producto por ID, devolvemos un error
 		if (productIndex === -1) {
 			console.log(`ERROR: Producto con id ${id} no encontrado.`);
 			return;
