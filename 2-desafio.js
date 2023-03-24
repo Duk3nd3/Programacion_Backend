@@ -170,7 +170,6 @@ const main = async () => {
 			// En mi caso E:\Projects\programacion-backend\products.json
 			path.join(__dirname, 'products.json')
 		);
-		console.log(path.join(__dirname, 'products.json'));
 
 		// Obtener todos los productos (debería devolver [])
 		console.log(await productManager.getProducts());
