@@ -195,10 +195,11 @@ const main = async () => {
 
 		// Eliminar producto por su ID, si comentamos la linea
 		// comenzara a crear productos asignando a ellos un ID autoincremental sin repetir
+		// Probar comentando esta linea
 		await productManager.deleteProductById(id);
 
 		// Para vaciar por completo el archivo 'products.json' utilizaremos
-		// el metodo deleteAllProducts
+		// el metodo deleteAllProducts [caso contrario 'comentarlo']
 		await productManager.deleteAllProducts(id);
 
 		// Obtener todos los productos (caso contrario debería devolver [])
