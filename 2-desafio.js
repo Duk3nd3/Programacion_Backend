@@ -46,7 +46,7 @@ class ProductManager {
 			'stock',
 		];
 
-		//Ejecutamos un 'for of' para verificar campos vacios
+		// Ejecutamos un 'for of' para verificar campos vacios
 		for (const field of requiredFields) {
 			!product[field] &&
 				console.log(`ERROR: El campo ${field} es obligatorio.`);
