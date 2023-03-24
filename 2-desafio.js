@@ -56,10 +56,12 @@ class ProductManager {
 		}
 
 		// Verificamos si el codigo del producto ya existe
+		// Como no se indica el 'FIN del proceso' en el desafio
+		// Solo manejamos el error a traves de un mensaje
 		this.products.some((stock) => stock.code === product.code) &&
 			console.log(`ERROR: El código ${product.code} ya está en uso.`);
 
-		// Al pasar 'la validacion', ahora realizar el 'push' del producto con su nuevo ID
+		// Al pasar 'la validacion', ahora realizamos el 'push' del producto con su nuevo ID
 		this.products.push({ id: this.products.length + 1, ...product });
 		await this.saveProducts();
 		return console.log(`SUCCESS: Producto agregado.`);
@@ -74,15 +76,17 @@ class ProductManager {
 	// Obtener producto por su ID
 	async getProductById(id) {
 		await this.loadProducts();
+		// Almacenamos el producto encontrado [TRUE] por su ID
+		// A traves del metodo 'find', en la variable 'product'
 		const product = this.products.find((productId) => productId.id === id);
-		console.log(product);
+		// Manejo de error sobre el proceso mencionado arriba
 		product
 			? console.log(`SUCCESS: Producto con id ${id} encontrado.`)
 			: console.log(`ERROR: Producto con id ${id} no encontrado.`);
 		return product;
 	}
 
-	// Actualizar producto por su ID
+	// Metodo para actualizar el producto por su ID
 	async updateProductById(id, updatedFields) {
 		await this.loadProducts();
 		const productIndex = this.products.findIndex(
