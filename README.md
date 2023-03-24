@@ -1,5 +1,7 @@
 # Programacion_Backend :wine_glass:
 
+[![My Skills](https://skillicons.dev/icons?i=js,nodejs)](https://skillicons.dev)
+
 ## Comisión :three: :nine: :seven: :five: :zero:
 
 <p align="center">
@@ -10,7 +12,7 @@
 
 - :arrow_right: node ./1-desafio.js
 
-## :hotsprings: Abri y ejecuta el desafio #2
+## :boom: Abri y ejecuta el desafio #2
 
 - :arrow_right: node ./2-desafio.js
 
