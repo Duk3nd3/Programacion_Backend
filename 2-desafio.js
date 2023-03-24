@@ -199,7 +199,7 @@ const main = async () => {
 		await productManager.deleteProductById(id);
 
 		// Para vaciar por completo el archivo 'products.json' utilizaremos
-		// el metodo deleteAllProducts [caso contrario 'comentarlo']
+		// el metodo deleteAllProducts [caso contrario comentarlo]
 		await productManager.deleteAllProducts(id);
 
 		// Obtener todos los productos (caso contrario debería devolver [])
