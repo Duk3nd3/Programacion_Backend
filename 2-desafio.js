@@ -134,6 +134,7 @@ class ProductManager {
 	}
 
 	// Opcional [vaciar el json]
+	// Este metodo adicional vacia por completo nuestro json
 	async deleteAllProducts() {
 		await this.loadProducts();
 
@@ -142,7 +143,7 @@ class ProductManager {
 			return;
 		}
 
-		// 'Removemos' todo el arreglo utilizando el metodo Splice
+		// 'Removemos' todo el arreglo utilizando el metodo 'splice'
 		this.products.splice(0, this.products.length);
 
 		await this.saveProducts();
@@ -164,10 +165,12 @@ const product = {
 const main = async () => {
 	try {
 		const productManager = new ProductManager(
-			// Usamos __dirname para ver la carpeta en donde esta ubicado nuestro archivo
-			// Utilizamos el metodo Join para unir los elementos
+			// Usamos __dirname para saber el path en el cual se encuentra el archivo [Una maravilla que NO conocia [ __dirname ]]
+			// Luego utilizamos el metodo 'join' para unir la ruta
+			// En mi caso E:\Projects\programacion-backend\products.json
 			path.join(__dirname, 'products.json')
 		);
+		console.log(path.join(__dirname, 'products.json'));
 
 		// Obtener todos los productos (debería devolver [])
 		console.log(await productManager.getProducts());
