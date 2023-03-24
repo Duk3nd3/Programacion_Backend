@@ -134,7 +134,7 @@ class ProductManager {
 	}
 }
 
-//Creamos objeto a utilizar como referencia
+// Creamos objeto a utilizar como referencia
 const product = {
 	title: 'Atari 2600',
 	description: 'Este es un producto epico',
