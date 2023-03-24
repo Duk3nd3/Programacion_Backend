@@ -171,7 +171,7 @@ const main = async () => {
 			path.join(__dirname, 'products.json')
 		);
 
-		// Obtener todos los productos (debería devolver [])
+		// Obtener todos los productos (inicialmente debería devolver [])
 		console.log(await productManager.getProducts());
 
 		// Agregar un producto
