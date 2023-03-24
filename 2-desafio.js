@@ -26,7 +26,7 @@ class ProductManager {
 
 	// Guardar productos
 	async saveProducts() {
-		//Verificamos que no haya errores durante el guardado del producto
+		// Verificamos que no haya errores durante el guardado del producto
 		try {
 			await fs.writeFile(this.path, JSON.stringify(this.products, 'utf-8', 2));
 		} catch (error) {
