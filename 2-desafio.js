@@ -100,9 +100,8 @@ class ProductManager {
 			return null;
 		}
 
-		// Guardamos el cambio en '...updatedFields'
-		// Guardado el producto a modificar por ID en 'productIndex' almacenando su actualizacion
-		// En un nuevo objeto llamado 'updatedProduct'
+		// Campo a actualiar en '...updatedFields'
+		// Producto actualizado en 'updatedProduct'
 		const updatedProduct = { ...this.products[productIndex], ...updatedFields };
 		this.products[productIndex] = updatedProduct;
 		await this.saveProducts();
