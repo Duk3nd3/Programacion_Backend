@@ -17,6 +17,7 @@ class ProductManager {
 			await fs.writeFile(this.path, '[]', 'utf-8');
 		}
 		try {
+			// Leemos el archivo almacenado en la variable data, con manejo de error
 			const data = await fs.readFile(this.path, 'utf-8');
 			this.products = JSON.parse(data);
 		} catch (error) {
@@ -27,7 +28,8 @@ class ProductManager {
 
 	// Guardar productos
 	async saveProducts() {
-		// Verificamos que no haya errores durante el guardado del producto
+		// Salvamos/Escribimos el archivo con el/los producto/s
+		// Convertimos esos valores a un json string
 		try {
 			await fs.writeFile(this.path, JSON.stringify(this.products, 'utf-8', 2));
 		} catch (error) {
@@ -36,7 +38,7 @@ class ProductManager {
 		}
 	}
 
-	// Agregar productos
+	// Metodo para agregar productos
 	async addProduct(product) {
 		const requiredFields = [
 			'title',
@@ -47,7 +49,7 @@ class ProductManager {
 			'stock',
 		];
 
-		// Ejecutamos un 'for of' para verificar campos vacios
+		// Utilizamos un 'for of' para verificar campos vacios
 		for (const field of requiredFields) {
 			!product[field] &&
 				console.log(`ERROR: El campo ${field} es obligatorio.`);
