@@ -52,7 +52,7 @@ class ProductManager {
 				console.log(`ERROR: El campo ${field} es obligatorio.`);
 		}
 
-		//Verificamos si el codigo del producto ya existe
+		// Verificamos si el codigo del producto ya existe
 		this.products.some((stock) => stock.code === product.code) &&
 			console.log(`ERROR: El código ${product.code} ya está en uso.`);
 
