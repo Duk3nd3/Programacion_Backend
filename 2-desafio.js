@@ -8,6 +8,7 @@ class ProductManager {
 	}
 
 	// Cargar productos
+	// Sino existe, creamos uno
 	async loadProducts() {
 		try {
 			await fs.access(this.path);
