@@ -102,7 +102,7 @@ class ProductManager {
 
 		// spread '...updatedFields' contiene el dato a actualizar
 		// spread '...this.products[productIndex]' contiene el producto a actualizar
-		// 'updatedProduct' almacenara el nuevo producto [actualizado]
+		// 'updatedProduct' almacenara el nuevo producto actualizado
 		const updatedProduct = { ...this.products[productIndex], ...updatedFields };
 		this.products[productIndex] = updatedProduct;
 		await this.saveProducts();
