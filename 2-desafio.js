@@ -132,7 +132,6 @@ class ProductManager {
 		console.log(`SUCCESS: Producto con id ${id} eliminado.`);
 	}
 
-	// Opcional [vaciar el json]
 	// Este metodo adicional vacia por completo nuestro json
 	async deleteAllProducts() {
 		await this.loadProducts();
