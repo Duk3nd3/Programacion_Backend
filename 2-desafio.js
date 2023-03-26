@@ -76,7 +76,7 @@ class ProductManager {
 	// Obtener producto por su ID
 	async getProductById(id) {
 		await this.loadProducts();
-		// Almacenamos el producto encontrado [TRUE] por su ID
+		// Almacenamos el producto encontrado por su ID
 		// A traves del metodo 'find', en la variable 'product'
 		const product = this.products.find((productId) => productId.id === id);
 		// Manejo de error sobre el proceso mencionado arriba
