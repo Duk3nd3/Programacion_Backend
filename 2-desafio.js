@@ -163,7 +163,7 @@ const product = {
 const main = async () => {
 	try {
 		const productManager = new ProductManager(
-			// Usamos __dirname para saber el path en el cual se encuentra el archivo [Una maravilla que NO conocia]
+			// Usamos la variable '__dirname' para saber el path en el cual se encuentra el archivo
 			// Luego utilizamos el metodo 'join' para unir la ruta
 			path.join(__dirname, 'products.json')
 		);
