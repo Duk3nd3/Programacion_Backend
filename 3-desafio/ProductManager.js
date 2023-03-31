@@ -8,21 +8,19 @@ module.exports = class ProductManager {
 	}
 
 	// Cargar productos
-	// Sino existe, creamos uno
+	// Utilizamos directamente fs.readFile() con la opción { flag: 'a+' },
+	// Abrira el archivo para lectura y escritura y, si el archivo no existe,
+	// lo creara automaticamente
 	async loadProducts() {
 		try {
-			await fs.access(this.path);
+			const data = await fs.readFile(this.path, {
+				encoding: 'utf-8',
+				flag: 'a+',
+			});
+			this.products = JSON.parse(data);
 		} catch (error) {
 			console.log(`El archivo de productos no existe. Se creará uno nuevo.`);
 			await fs.writeFile(this.path, '[]', 'utf-8');
-		}
-		try {
-			// Leemos el archivo almacenado en la variable data, con manejo de error
-			const data = await fs.readFile(this.path, 'utf-8');
-			this.products = JSON.parse(data);
-		} catch (error) {
-			console.error(`Error al cargar productos: ${error.message}`);
-			throw error;
 		}
 	}
 
@@ -79,10 +77,10 @@ module.exports = class ProductManager {
 		// Almacenamos el producto encontrado por su ID
 		// A traves del metodo 'find', en la variable 'product'
 		const product = this.products.find((productId) => productId.id === id);
-		// Manejo de error sobre el proceso mencionado arriba
-		product
-			? console.log(`SUCCESS: Producto con id ${id} encontrado.`)
-			: console.log(`ERROR: Producto con id ${id} no encontrado.`);
+		// Validamos product
+		product === undefined
+			? console.log(`ERROR: No pudimos obtener el producto con id ${id}.`)
+			: console.log(`SUCCESS: Producto con id ${id} obtenido exitosamente.`);
 		return product;
 	}
 
@@ -96,8 +94,7 @@ module.exports = class ProductManager {
 		// El metodo 'findIndex' devolvera -1
 		// Si la condicion de busqueda NO se cumple
 		if (productIndex === -1) {
-			console.log(`ERROR: Producto con id ${id} no encontrado.`);
-			return null;
+			return console.log(`ERROR: Producto con id ${id} no encontrado.`);
 		}
 
 		// spread '...updatedFields' contiene el dato nuevo
@@ -122,14 +119,13 @@ module.exports = class ProductManager {
 		// Si no encontramos el producto por ID, devolvemos un error
 		// El metodo 'findIndex' devolvera -1 sino cumple la condicion
 		if (productIndex === -1) {
-			console.log(`ERROR: Producto con id ${id} no encontrado.`);
-			return;
+			return console.log(`ERROR: Producto con id ${id} no encontrado.`);
 		}
 
 		// Caso contrario, eliminamos el producto [segun su ID]
 		this.products.splice(productIndex, 1);
 		await this.saveProducts();
-		console.log(`SUCCESS: Producto con id ${id} eliminado.`);
+		return console.log(`SUCCESS: Producto con id ${id} eliminado.`);
 	}
 
 	// Este metodo adicional vacia por completo nuestro json
@@ -137,16 +133,25 @@ module.exports = class ProductManager {
 		await this.loadProducts();
 
 		if (this.products.length === 0) {
-			console.log('No hay productos para eliminar.');
-			return;
+			return console.log('No hay productos para eliminar.');
 		}
 
 		// 'Removemos' todo el arreglo utilizando el metodo 'splice'
 		this.products.splice(0, this.products.length);
 
 		await this.saveProducts();
-		console.log('Todos los productos han sido eliminados.');
+		return console.log('Todos los productos han sido eliminados.');
 	}
+};
+
+// Creamos objeto a utilizar como referencia
+const product = {
+	title: 'Atari 2600',
+	description: 'Este es un producto epico',
+	price: 200,
+	thumbnail: 'Imagen Atari 2600',
+	code: 'AT2600',
+	stock: 25,
 };
 
 // La clase la instanciamos desde 'app.js' exportando este archivo a dicho path
