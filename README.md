@@ -1,6 +1,6 @@
 # Programacion_Backend :wine_glass:
 
-[![My Skills](https://skillicons.dev/icons?i=js,nodejs)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=vscode,js,nodejs,express)](https://skillicons.dev)
 
 ## Comisión :three: :nine: :seven: :five: :zero:
 
@@ -10,10 +10,19 @@
 
 ## :hotsprings: Abri y ejecuta el desafio #1
 
-- :arrow_right: node ./1-desafio.js
+- :arrow_right: cd 1-desafio
+- :arrow_right: node ./ProductManager.js
 
 ## :boom: Abri y ejecuta el desafio #2
 
-- :arrow_right: node ./2-desafio.js
+- :arrow_right: cd 2-desafio
+- :arrow_right: node ./ProductManager.js
+
+## :heart_eyes_cat: Abri la carpeta 3-desafio
+
+- :arrow_right: cd 3-desafio
+- :arrow_right: nodemon app.js [ npm i nodemon ] para encender el servidor
+- :arrow_right: Click sobre 'Send Request' en .http [ Rest Client -VSCode
+  Plugin- ] para visualizar los ejemplos
 
 ![back-end dev](https://preview.redd.it/84iuborlqbf81.jpg?auto=webp&s=6d0c1c8235344d422b962126685915599415e838)

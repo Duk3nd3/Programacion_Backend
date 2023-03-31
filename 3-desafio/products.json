@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 1300,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  },
+  {
+    "id": 2,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 200,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  },
+  {
+    "id": 3,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 200,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  },
+  {
+    "id": 4,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 200,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  },
+  {
+    "id": 5,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 200,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  },
+  {
+    "id": 6,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 200,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  },
+  {
+    "id": 7,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 200,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  },
+  {
+    "id": 8,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 200,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  },
+  {
+    "id": 9,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 200,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  },
+  {
+    "id": 10,
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 200,
+    "thumbnail": "Imagen Atari 2600",
+    "code": "AT2600",
+    "stock": 25
+  }
+]

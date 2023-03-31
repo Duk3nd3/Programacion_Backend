@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 
-class ProductManager {
+module.exports = class ProductManager {
 	constructor(filepath) {
 		this.path = filepath;
 		this.products = [];
@@ -147,63 +147,6 @@ class ProductManager {
 		await this.saveProducts();
 		console.log('Todos los productos han sido eliminados.');
 	}
-}
-
-// Creamos objeto a utilizar como referencia
-const product = {
-	title: 'Atari 2600',
-	description: 'Este es un producto epico',
-	price: 200,
-	thumbnail: 'Imagen Atari 2600',
-	code: 'AT2600',
-	stock: 25,
 };
 
-// Instanciamos la clase
-const main = async () => {
-	try {
-		const productManager = new ProductManager(
-			// Usamos la variable '__dirname' para saber el path en el cual se encuentra el archivo
-			// Luego utilizamos el metodo 'join' para unir la ruta
-			path.join(__dirname, 'products.json')
-		);
-
-		// Obtener todos los productos (inicialmente debería devolver [])
-		console.log(await productManager.getProducts());
-
-		// Agregar un producto
-		await productManager.addProduct(product);
-
-		// Obtener todos los productos (debería devolver el producto agregado)
-		console.log(await productManager.getProducts());
-
-		// Obtener el producto por su ID
-		const id = 1; // asumiendo que se generó el ID automáticamente como 1
-		console.log(await productManager.getProductById(id));
-
-		// Actualizar un producto por su ID
-		const updatedProductFields = {
-			price: 1300,
-		};
-		await productManager.updateProductById(id, updatedProductFields);
-
-		// Obtener todos los productos (debería devolver el producto actualizado)
-		console.log(await productManager.getProducts());
-
-		// Eliminar producto por su ID, si comentamos la linea
-		// comenzara a crear productos asignando a ellos un ID autoincremental sin repetir
-		// Probar comentando esta linea
-		await productManager.deleteProductById(id);
-
-		// Para vaciar por completo el archivo 'products.json' utilizaremos
-		// el metodo deleteAllProducts [caso contrario 'comentarlo']
-		await productManager.deleteAllProducts(id);
-
-		// Obtener todos los productos (caso contrario debería devolver [])
-		console.log(await productManager.getProducts());
-	} catch (error) {
-		console.error(error);
-	}
-};
-
-main();
+// La clase la instanciamos desde 'app.js' exportando este archivo a dicho path

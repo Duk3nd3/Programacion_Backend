@@ -1,0 +1,11 @@
+### Limitamos la consulta a 7 productos
+GET http://localhost:8080/products?limit=7
+
+### Todos los productos
+GET http://localhost:8080/products/
+
+### El producto con ID 3
+GET http://localhost:8080/products/3
+
+### Un ID de producto inexistente
+GET http://localhost:8080/products/121
