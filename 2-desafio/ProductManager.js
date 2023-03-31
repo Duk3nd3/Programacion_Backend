@@ -79,7 +79,7 @@ class ProductManager {
 		const product = this.products.find((productId) => productId.id === id);
 		// Manejo de error sobre el proceso mencionado arriba
 		product === undefined
-			? console.log(`ERROR: 2No pudimos obtener el producto con id ${id}.`)
+			? console.log(`ERROR: No pudimos obtener el producto con id ${id}.`)
 			: console.log(`SUCCESS: Producto con id ${id} obtenido exitosamente.`);
 		return `INFO: Intente con otro ID distinto de ${id} por favor`;
 	}
