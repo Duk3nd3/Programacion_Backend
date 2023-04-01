@@ -66,6 +66,8 @@ module.exports = class ProductManager {
 	}
 
 	// Obtener productos
+	// Optimizamos la obtencion de productos mejorando
+	// el metodo loadProducts();
 	async getProducts() {
 		await this.loadProducts();
 		return this.products;

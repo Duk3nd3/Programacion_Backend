@@ -1,4 +1,4 @@
-### Limitamos la consulta a 7 productos
+### Limitamos la consulta a 5 productos
 GET http://localhost:8080/products?limit=5
 
 ### Todos los productos

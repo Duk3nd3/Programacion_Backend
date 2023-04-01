@@ -2,6 +2,8 @@ const express = require('express');
 // Importamos ProductManager [class]
 const ProductManager = require('./ProductManager.js');
 
+// INFO: Se podran [tambien] observar los resultados por consola del servidor
+
 // Instanciamos express
 const app = express();
 // Instanciamos ProductManager
