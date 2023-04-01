@@ -25,4 +25,6 @@
 - :arrow_right: Click sobre 'Send Request' en .http [ Rest Client -VSCode
   Plugin- ] para visualizar los ejemplos
 
+<p align="center">
 ![back-end dev](https://i.ibb.co/PCPxRz0/backend-dev.png)
+</p>
