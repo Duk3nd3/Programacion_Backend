@@ -26,5 +26,5 @@
   Plugin- ] para visualizar los ejemplos
 
 <p align="center">
-<img src='https://i.ibb.co/PCPxRz0/backend-dev.png'>
+<img src="https://i.ibb.co/PCPxRz0/backend-dev.png">
 </p>
