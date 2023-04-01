@@ -144,14 +144,4 @@ module.exports = class ProductManager {
 	}
 };
 
-// Creamos objeto a utilizar como referencia
-const product = {
-	title: 'Atari 2600',
-	description: 'Este es un producto epico',
-	price: 200,
-	thumbnail: 'Imagen Atari 2600',
-	code: 'AT2600',
-	stock: 25,
-};
-
 // La clase la instanciamos desde 'app.js' exportando este archivo a dicho path
