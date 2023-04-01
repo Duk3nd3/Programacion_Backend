@@ -28,7 +28,7 @@ app.get('/products/:pid', async (request, response) => {
 	// Manejo de error si el producto no es encontrado por su ID [pid]
 	product
 		? response.json(product)
-		: response.status(404).json({ message: 'Producto no encontrado' });
+		: response.status(500).json({ message: 'Producto no encontrado' });
 });
 
 // Definimos el puerto en ejecucion
