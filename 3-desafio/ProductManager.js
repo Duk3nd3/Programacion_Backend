@@ -129,19 +129,19 @@ module.exports = class ProductManager {
 	}
 
 	// Este metodo adicional vacia por completo nuestro json
-	async deleteAllProducts() {
-		await this.loadProducts();
+	// async deleteAllProducts() {
+	// 	await this.loadProducts();
 
-		if (this.products.length === 0) {
-			return console.log('No hay productos para eliminar.');
-		}
+	// 	if (this.products.length === 0) {
+	// 		return console.log('No hay productos para eliminar.');
+	// 	}
 
-		// 'Removemos' todo el arreglo utilizando el metodo 'splice'
-		this.products.splice(0, this.products.length);
+	// 	// 'Removemos' todo el arreglo utilizando el metodo 'splice'
+	// 	this.products.splice(0, this.products.length);
 
-		await this.saveProducts();
-		return console.log('Todos los productos han sido eliminados.');
-	}
+	// 	await this.saveProducts();
+	// 	return console.log('Todos los productos han sido eliminados.');
+	// }
 };
 
 // La clase la instanciamos desde 'app.js' exportando este archivo a dicho path
