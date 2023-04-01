@@ -25,4 +25,4 @@
 - :arrow_right: Click sobre 'Send Request' en .http [ Rest Client -VSCode
   Plugin- ] para visualizar los ejemplos
 
-![back-end dev](https://www.google.com/url?sa=i&url=https%3A%2F%2Fdogtronic.io%2Fen%2Fkariera%2Fback-end-developer%2F&psig=AOvVaw2WpjtNNLMPAfl9VNytsMDv&ust=1680460877815000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIDlo9-qif4CFQAAAAAdAAAAABAc)
+![back-end dev](https://ibb.co/mz2JmFg)
