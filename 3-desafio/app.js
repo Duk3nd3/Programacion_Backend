@@ -24,7 +24,9 @@ app.get('/api/products', async (request, response) => {
 
 	// Hacemos uso del metodo 'slice' con el fin de obtener el limite/cantidad
 	// de productos deseados
-	limit ? response.json(products.slice(0, limit)) : response.json(products);
+	limit
+		? response.send({ status: 'success', payload: products.slice(0, limit) })
+		: response.send({ status: 'success', payload: products });
 });
 
 // Hacemos uso de 'GET' pero esta vez obtenemos un producto
@@ -34,8 +36,11 @@ app.get('/api/products/:pid', async (request, response) => {
 	const product = await productsManager.getProductById(id);
 	// Manejo de error si el producto no es encontrado por su ID [pid]
 	product
-		? response.json(product)
-		: response.status(500).json({ message: 'Producto no encontrado' });
+		? response.send({ status: 'success', payload: product })
+		: response.status(500).send({
+				status: 'Internal Server Error',
+				message: 'Producto no encontrado',
+		  });
 });
 
 // Definimos el puerto en ejecucion
