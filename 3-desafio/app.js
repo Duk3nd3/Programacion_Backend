@@ -20,28 +20,36 @@ app.get('/', (request, response) => {
 // Hacemos uso de 'GET' para obtener los productos en su totalidad
 // o a traves de una limitacion ['n' cantidad de productos con 'query.limit']
 app.get('/api/products', async (request, response) => {
-	const limit = request.query.limit;
-	const products = await productsManager.getProducts();
+	try {
+		const limit = request.query.limit;
+		const products = await productsManager.getProducts();
 
-	// Hacemos uso del metodo 'slice' con el fin de obtener el limite/cantidad
-	// de productos deseados caso contrario, mostramos todo
-	limit
-		? response.send({ status: 'success', payload: products.slice(0, limit) })
-		: response.send({ status: 'success', payload: products });
+		// Hacemos uso del metodo 'slice' con el fin de obtener el limite/cantidad
+		// de productos deseados caso contrario, mostramos todo
+		limit
+			? response.send({ status: 'success', payload: products.slice(0, limit) })
+			: response.send({ status: 'success', payload: products });
+	} catch (err) {
+		console.log(err);
+	}
 });
 
 // Hacemos uso de 'GET' pero esta vez obtenemos un producto
 // a traves de su ID [:pid]
 app.get('/api/products/:pid', async (request, response) => {
-	const id = parseInt(request.params.pid);
-	const product = await productsManager.getProductById(id);
-	// Manejo de error si el producto no es encontrado por su ID [pid]
-	product
-		? response.send({ status: 'success', payload: product })
-		: response.status(500).send({
-				status: 'Internal Server Error',
-				message: 'Producto no encontrado',
-		  });
+	try {
+		const id = parseInt(request.params.pid);
+		const product = await productsManager.getProductById(id);
+		// Manejo de error si el producto no es encontrado por su ID [pid]
+		product
+			? response.send({ status: 'success', payload: product })
+			: response.status(500).send({
+					status: 'Internal Server Error',
+					message: 'Producto no encontrado',
+			  });
+	} catch (err) {
+		console.log(err);
+	}
 });
 
 // Definimos el puerto en ejecucion
