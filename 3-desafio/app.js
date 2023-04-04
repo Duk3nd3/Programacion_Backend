@@ -23,7 +23,7 @@ app.get('/api/products', async (request, response) => {
 	const products = await productsManager.getProducts();
 
 	// Hacemos uso del metodo 'slice' con el fin de obtener el limite/cantidad
-	// de productos deseados
+	// de productos deseados caso contrario, mostramos todo
 	limit
 		? response.send({ status: 'success', payload: products.slice(0, limit) })
 		: response.send({ status: 'success', payload: products });
