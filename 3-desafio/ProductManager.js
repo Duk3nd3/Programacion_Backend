@@ -10,7 +10,7 @@ module.exports = class ProductManager {
 	// Cargar productos
 	// Utilizamos directamente fs.readFile() con la opción { flag: 'a+' },
 	// Abrira el archivo para lectura y escritura y, si el archivo no existe,
-	// lo creara automaticamente
+	// lo creara
 	async loadProducts() {
 		try {
 			const data = await fs.readFile(this.path, {
