@@ -6,6 +6,7 @@ const ProductManager = require('./ProductManager.js');
 
 // Instanciamos express
 const app = express();
+
 // Instanciamos ProductManager
 const productsManager = new ProductManager('products.json');
 
