@@ -11,9 +11,14 @@ const productsManager = new ProductManager('products.json');
 
 app.use(express.urlencoded({ extended: true }));
 
+// Home
+app.get('/', (request, response) => {
+	response.status(200).send('<h1>BIENVENIDO</h1>');
+});
+
 // Hacemos uso de 'GET' para obtener los productos en su totalidad
 // o a traves de una limitacion ['n' cantidad de productos con 'query.limit']
-app.get('/products', async (request, response) => {
+app.get('/api/products', async (request, response) => {
 	const limit = request.query.limit;
 	const products = await productsManager.getProducts();
 
@@ -24,7 +29,7 @@ app.get('/products', async (request, response) => {
 
 // Hacemos uso de 'GET' pero esta vez obtenemos un producto
 // a traves de su ID [:pid]
-app.get('/products/:pid', async (request, response) => {
+app.get('/api/products/:pid', async (request, response) => {
 	const id = parseInt(request.params.pid);
 	const product = await productsManager.getProductById(id);
 	// Manejo de error si el producto no es encontrado por su ID [pid]

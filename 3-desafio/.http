@@ -1,11 +1,14 @@
+### Home
+GET http://localhost:8080/
+
 ### Limitamos la consulta a 5 productos
-GET http://localhost:8080/products?limit=5
+GET http://localhost:8080/api/products?limit=5
 
 ### Todos los productos
-GET http://localhost:8080/products/
+GET http://localhost:8080/api/products/
 
 ### El producto con ID 9
-GET http://localhost:8080/products/9
+GET http://localhost:8080/api/products/9
 
 ### Un ID de producto inexistente
-GET http://localhost:8080/products/121
+GET http://localhost:8080/api/products/121
