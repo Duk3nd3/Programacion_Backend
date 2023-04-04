@@ -18,9 +18,9 @@ module.exports = class ProductManager {
 				flag: 'a+',
 			});
 			this.products = JSON.parse(data);
-		} catch (error) {
+		} catch (err) {
 			console.log(
-				`${error} El archivo de productos no existe. Se creará uno nuevo.`
+				`${err} El archivo de productos no existe. Se creará uno nuevo.`
 			);
 			await fs.writeFile(this.path, '[]', 'utf-8');
 		}
