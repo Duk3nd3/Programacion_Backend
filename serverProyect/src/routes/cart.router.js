@@ -2,15 +2,15 @@ const { Router } = require('express');
 const CartManager = require('../DAO/CartManager.js');
 
 const router = Router();
-const carts = new CartManager();
+const cartManager = new CartManager();
 
 // METODO GET CART
 
 router.get('/:cid', async (req, res) => {
-	const { cid } = req.params;
+	const cid = parseInt(req.params.cid);
 
 	try {
-		const returnedValue = await carts.getCartById(cid);
+		const returnedValue = await cartManager.getCartById(cid);
 
 		!returnedValue
 			? res.status(400).send({ status: 'Error', message: 'No Cart' })
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
 
 		// Si addProduct devuelve un OBJ con la prop error, hay un error
 		if (cart.status === 'Error') return res.status(400).send({ returnedValue });
-		await carts.addCart(cart);
+		await cartManager.addCart(cart);
 		res.status(200).send({ cart });
 	} catch (err) {
 		return res.status(400).send({ status: 'Error', message: err });
@@ -50,12 +50,14 @@ router.post('/:cid/product/:pid', async (req, res) => {
 		// Obtenemos el body
 		const { products } = req.body;
 
-		// Obtenemos el cid del cart y pid del product
-		const { cid, pid } = req.params;
+		// Obtenemos el cid del cart y pid del product por params y lo parseamos
+		const pid = parseInt(req.params.pid);
+		const cid = parseInt(req.params.cid);
 
+		// Obtenemos el ID del producto
 		products['idProduct'] = Number(pid);
-
-		const cart = await carts.getCartById(cid);
+		// Obtenemos el ID del carrito
+		const cart = await cartManager.getCartById(cid);
 
 		if (!cart) {
 			return res
@@ -82,14 +84,14 @@ router.post('/:cid/product/:pid', async (req, res) => {
 			cart.products[productFound].quantity =
 				Number(cart.products[productFound].quantity) +
 				Number(products.quantity);
-			await carts.updateCart(cid, cart);
+			await cartManager.updateCart(cid, cart);
 			return res
 				.status(200)
 				.send({ status: 'Success', message: 'Product added' });
 		}
 
 		cart.products.push(products);
-		await carts.updateCart(cid, cart);
+		await cartManager.updateCart(cid, cart);
 		res.status(200).send({
 			status: 'Success',
 			message: 'Product added',

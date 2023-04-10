@@ -11,7 +11,7 @@ class ProductManager {
 		await fs.promises.writeFile(this.path, toJSON);
 	};
 
-	// Metodo addProduct
+	// METODO addProduct +++++
 
 	addProduct = async (
 		title,
@@ -78,7 +78,7 @@ class ProductManager {
 		return { status: 'Error', message: 'All fields are required' };
 	};
 
-	// Metodo getProducts
+	// METODO getProducts +++++
 
 	getProducts = async () => {
 		try {
@@ -86,12 +86,11 @@ class ProductManager {
 			if (getFileProducts.length === 0) return [];
 			return JSON.parse(getFileProducts);
 		} catch (err) {
-			console.log(err);
 			return { status: 'Error', error: err };
 		}
 	};
 
-	// Metodo getProductById
+	// METODO getProductById +++++
 
 	getProductById = async (id) => {
 		try {
@@ -106,7 +105,7 @@ class ProductManager {
 		}
 	};
 
-	// Metodo updateProduct
+	// METODO updateProduct +++++
 
 	updateProduct = async (pid, data) => {
 		const getFileProducts = await fs.promises.readFile(this.path, 'utf-8');
@@ -139,7 +138,7 @@ class ProductManager {
 		return updatedProduct;
 	};
 
-	// Metodo deleteProduct
+	// METODO deleteProduct +++++
 
 	deleteProduct = async (pid) => {
 		try {

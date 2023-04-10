@@ -1,4 +1,4 @@
-### PRODUCTS
+### PRODUCTS ###
 
 ### METH GET
 
@@ -48,14 +48,13 @@ Content-Type: application/json
 	"stock": 50
 }
 
-
 ### METH DELETE
 
 ### Eliminamos producto por su ID
 DELETE http://localhost:8080/api/products/11
 
 
-### CART
+### CART ###
 
 ### METH POST
 
@@ -67,15 +66,12 @@ POST http://localhost:8080/api/carts/1/product/2
 Content-Type: application/json
 
 {
-    "products": [
-        {
-            "idProduct": "1",
-            "quantity": "30"
-        }
-    ]
+	"products": 
+			{
+				"idProduct": 1,
+				"quantity": 1
+			}
 }
-
-
 
 ### METH GET
 

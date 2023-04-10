@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
 			stock,
 		} = sendProduct;
 
-		// Desestructuracion para el envio del metodo addProduct
+		// Desestructuracion para el envio al metodo addProduct
 		const returnedValue = await productManager.addProduct(
 			title,
 			description,
