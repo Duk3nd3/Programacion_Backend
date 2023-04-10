@@ -27,16 +27,16 @@ module.exports = class ProductManager {
 	}
 
 	// Guardar productos
-	// async saveProducts() {
-	// 	// Salvamos/Escribimos el archivo con el/los producto/s
-	// 	// Convertimos esos valores a un json string
-	// 	try {
-	// 		await fs.writeFile(this.path, JSON.stringify(this.products, 'utf-8', 2));
-	// 	} catch (error) {
-	// 		console.error(`Error al guardar productos: ${error.message}`);
-	// 		throw error;
-	// 	}
-	// }
+	async saveProducts() {
+		// 	// Salvamos/Escribimos el archivo con el/los producto/s
+		// 	// Convertimos esos valores a un json string
+		try {
+			await fs.writeFile(this.path, JSON.stringify(this.products, 'utf-8', 2));
+		} catch (error) {
+			console.error(`Error al guardar productos: ${error.message}`);
+			throw error;
+		}
+	}
 
 	// Metodo para agregar productos
 	async addProduct(product) {
@@ -101,48 +101,48 @@ module.exports = class ProductManager {
 	}
 
 	// Metodo para actualizar el producto por su ID
-	// async updateProductById(id, updatedFields) {
-	// 	await this.loadProducts();
-	// 	const productIndex = this.products.findIndex(
-	// 		(product) => product.id === id
-	// 	);
+	async updateProductById(id, updatedFields) {
+		await this.loadProducts();
+		const productIndex = this.products.findIndex(
+			(product) => product.id === id
+		);
 
-	// 	// El metodo 'findIndex' devolvera -1
-	// 	// Si la condicion de busqueda NO se cumple
-	// 	if (productIndex === -1) {
-	// 		return console.log(`ERROR: Producto con id ${id} no encontrado.`);
-	// 	}
+		// El metodo 'findIndex' devolvera -1
+		// Si la condicion de busqueda NO se cumple
+		if (productIndex === -1) {
+			return console.log(`ERROR: Producto con id ${id} no encontrado.`);
+		}
 
-	// 	// spread '...updatedFields' contiene el dato nuevo
-	// 	// spread '...this.products[productIndex]' contiene el producto con el campo a actualizar
-	// 	// 'updatedProduct' almacenara el nuevo producto actualizado
-	// 	const updatedProduct = { ...this.products[productIndex], ...updatedFields };
-	// 	this.products[productIndex] = updatedProduct;
-	// 	await this.saveProducts();
-	// 	console.log(`SUCCESS: Producto con id ${id} actualizado.`);
-	// 	return updatedProduct;
-	// }
+		// 	// spread '...updatedFields' contiene el dato nuevo
+		// 	// spread '...this.products[productIndex]' contiene el producto con el campo a actualizar
+		// 	// 'updatedProduct' almacena el nuevo producto actualizado
+		const updatedProduct = { ...this.products[productIndex], ...updatedFields };
+		this.products[productIndex] = updatedProduct;
+		await this.saveProducts();
+		console.log(`SUCCESS: Producto con id ${id} actualizado.`);
+		return updatedProduct;
+	}
 
 	// // Eliminar producto por su ID
 	// // En este caso se forzo el ID a 1, pero puede ser cualquiera
 	// // Si se generan varios productos
-	// async deleteProductById(id) {
-	// 	await this.loadProducts();
-	// 	const productIndex = this.products.findIndex(
-	// 		(product) => product.id === id
-	// 	);
+	async deleteProductById(id) {
+		await this.loadProducts();
+		const productIndex = this.products.findIndex(
+			(product) => product.id === id
+		);
 
-	// 	// Si no encontramos el producto por ID, devolvemos un error
-	// 	// El metodo 'findIndex' devolvera -1 sino cumple la condicion
-	// 	if (productIndex === -1) {
-	// 		return console.log(`ERROR: Producto con id ${id} no encontrado.`);
-	// 	}
+		// 	// Si no encontramos el producto por ID, devolvemos un error
+		// 	// El metodo 'findIndex' devolvera -1 sino cumple la condicion
+		if (productIndex === -1) {
+			return console.log(`ERROR: Producto con id ${id} no encontrado.`);
+		}
 
-	// 	// Caso contrario, eliminamos el producto [segun su ID]
-	// 	this.products.splice(productIndex, 1);
-	// 	await this.saveProducts();
-	// 	return console.log(`SUCCESS: Producto con id ${id} eliminado.`);
-	// }
+		// 	// Caso contrario, eliminamos el producto [segun su ID]
+		this.products.splice(productIndex, 1);
+		await this.saveProducts();
+		return console.log(`SUCCESS: Producto con id ${id} eliminado.`);
+	}
 
 	// Este metodo adicional vacia por completo nuestro json
 	// async deleteAllProducts() {

@@ -1,0 +1,19 @@
+body {
+	text-align: center;
+	background-color: rgb(80, 85, 85);
+	font-weight: 600;
+	color: white;
+}
+
+form {
+	max-width: 500px;
+	margin: auto;
+}
+
+.btn {
+	margin-top: 5px;
+}
+input {
+	background-color: rgb(110, 89, 67);
+	color: rgb(161, 53, 53);
+}

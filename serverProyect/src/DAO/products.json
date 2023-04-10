@@ -1,0 +1,130 @@
+[
+  {
+    "title": "Atari 2600",
+    "description": "Este es un producto epico",
+    "price": 9900,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": [
+      "http://img.com/a2600"
+    ],
+    "code": "AT2600",
+    "stock": 5,
+    "id": 1
+  },
+  {
+    "title": "Sega Mega Drive",
+    "description": "Este es un producto epico",
+    "price": 1500,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": [
+      "http://img.com/smd"
+    ],
+    "code": "SEG2700",
+    "stock": 25,
+    "id": 2
+  },
+  {
+    "title": "Súper Nintendo 64",
+    "description": "Este es un producto epico",
+    "price": 3500,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": [
+      "http://img.com/sn64"
+    ],
+    "code": "SUPN64",
+    "stock": 51,
+    "id": 3
+  },
+  {
+    "title": "ZX Spectrum",
+    "description": "Este es un producto epico",
+    "price": 8800,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": [
+      "http://img.com/speczx"
+    ],
+    "code": "ZXP7400",
+    "stock": 4,
+    "id": 4
+  },
+  {
+    "title": "Game Boy",
+    "description": "Este es un producto epico",
+    "price": 900,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": [
+      "http://img.com/gb"
+    ],
+    "code": "GBOY3100",
+    "stock": 43,
+    "id": 5
+  },
+  {
+    "title": "PlayStation",
+    "description": "Este es un producto epico",
+    "price": 2300,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": [
+      "http://img.com/ps1"
+    ],
+    "code": "PS13800",
+    "stock": 63,
+    "id": 6
+  },
+  {
+    "title": "Xbox X",
+    "description": "Este es un producto epico",
+    "price": 2300,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": "http://img.com/xboxx",
+    "code": "XBOXX270",
+    "stock": 50,
+    "id": 7
+  },
+  {
+    "title": "ScummVM",
+    "description": "Este es un producto epico",
+    "price": 5650,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": [
+      "http://img.com/scumvm"
+    ],
+    "code": "SVM9200",
+    "stock": 7,
+    "id": 8
+  },
+  {
+    "title": "Commodore 64",
+    "description": "Este es un producto epico",
+    "price": 7300,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": [
+      "http://img.com/com64"
+    ],
+    "code": "CMD6409",
+    "stock": 11,
+    "id": 9
+  },
+  {
+    "title": "ColecoVision",
+    "description": "Este es un producto epico",
+    "price": 8260,
+    "status": "true",
+    "category": "tech",
+    "thumbnail": [
+      "http://img.com/coleco"
+    ],
+    "code": "CV8300",
+    "stock": 19,
+    "id": 10
+  }
+]

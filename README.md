@@ -21,6 +21,7 @@
 ## :heart_eyes_cat: Abri la carpeta 3-desafio
 
 - :arrow_right: cd 3-desafio
+- :arrow_right: npm run dev
 - :arrow_right: nodemon app.js [ npm i nodemon ] para encender el servidor
 - :arrow_right: Click sobre 'Send Request' en .http [ Rest Client -VSCode
   Plugin- ] para visualizar los ejemplos
