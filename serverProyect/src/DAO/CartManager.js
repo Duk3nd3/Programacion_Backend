@@ -6,7 +6,7 @@ class CartManager {
 		this.path = './src/DAO/carts.json';
 	}
 
-	// Metodo addCart
+	// METODO addCart +++++
 
 	addCart = async (newCart) => {
 		try {
@@ -33,7 +33,7 @@ class CartManager {
 		}
 	};
 
-	// Metodo getCarts
+	// METODO getCarts +++++
 
 	getCarts = async () => {
 		try {
@@ -45,7 +45,7 @@ class CartManager {
 		}
 	};
 
-	// Metodo getCartById
+	// METODO getCartById +++++
 
 	getCartById = async (id) => {
 		try {
@@ -60,7 +60,7 @@ class CartManager {
 		}
 	};
 
-	// Metodo updateCart
+	// METODO updateCart +++++
 
 	updateCart = async (cid, data) => {
 		try {

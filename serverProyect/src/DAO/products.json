@@ -79,13 +79,13 @@
   },
   {
     "title": "Xbox X",
-    "description": "Este es un producto epico",
-    "price": 2300,
+    "description": "Este nuevo producto es MUY epico",
+    "price": 5300,
     "status": "true",
     "category": "tech",
     "thumbnail": "http://img.com/xboxx",
-    "code": "XBOXX270",
-    "stock": 50,
+    "code": "XBOXX271",
+    "stock": 100,
     "id": 7
   },
   {

@@ -4,7 +4,7 @@ const CartManager = require('../DAO/CartManager.js');
 const router = Router();
 const cartManager = new CartManager();
 
-// METODO GET CART
+// METODO GET CART +++++
 
 router.get('/:cid', async (req, res) => {
 	const cid = parseInt(req.params.cid);
@@ -20,7 +20,7 @@ router.get('/:cid', async (req, res) => {
 	}
 });
 
-// METODO POST CART
+// METODO POST CART +++++
 
 router.post('/', async (req, res) => {
 	try {
@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
 	}
 });
 
-// METODO POST CART => PRODUCTS
+// METODO POST CART => PRODUCTS +++++
 
 router.post('/:cid/product/:pid', async (req, res) => {
 	try {
@@ -99,6 +99,29 @@ router.post('/:cid/product/:pid', async (req, res) => {
 		});
 	} catch (err) {
 		return res.status(400).send({ status: 'Error', message: err.message });
+	}
+});
+
+// METODO DELETE CART +++++
+
+router.delete('/:cid', async (req, res) => {
+	try {
+		const cid = parseInt(req.params.cid);
+		const cart = await cartManager.getCartById(cid);
+
+		if (!cart) {
+			return res
+				.status(400)
+				.send({ status: 'Error', message: 'Cart not found' });
+		}
+
+		await cartManager.deleteCart(cid);
+		res.status(200).send({
+			status: 'Success',
+			message: `Cart with ID ${cid} deleted successfully`,
+		});
+	} catch (err) {
+		return res.status(400).send({ status: 'Error', message: err });
 	}
 });
 

@@ -9,13 +9,27 @@ const productManager = new ProductManager();
 
 router.get('/', async (req, res) => {
 	const { limit } = req.query;
+
+	if (limit && isNaN(parseInt(limit))) {
+		return res
+			.status(400)
+			.send({ status: 'Invalid limit value, must be a number' });
+	}
+
 	try {
 		const valueReturned = await productManager.getProducts();
-		if (valueReturned.error)
+		if (valueReturned.error) {
 			return res
 				.status(200)
 				.send({ status: 'There are no products', valueReturned });
-		const limitProducts = valueReturned.slice(0, limit);
+		}
+		const availableProducts = valueReturned.length;
+		if (limit && parseInt(limit) > availableProducts) {
+			return res.status(400).send({
+				status: 'Limit value is greater than the number of available products',
+			});
+		}
+		const limitProducts = valueReturned.slice(0, limit && parseInt(limit));
 		res.status(200).send({ status: 'Products', limitProducts });
 	} catch (err) {
 		res.status(400).send({ status: 'Router error', err });
@@ -42,11 +56,12 @@ router.post('/', async (req, res) => {
 
 		// Verificamos que ningun campo este vacio
 		const emptyField = Object.values(sendProduct).find((value) => value === '');
-		console.log(emptyField);
+
 		if (emptyField)
-			return res
-				.status(400)
-				.send({ status: 'Error', message: 'All fields are required' });
+			return res.status(400).send({
+				status: 'Error',
+				message: `The "${emptyField}" field is required`,
+			});
 
 		const {
 			title,
@@ -74,7 +89,7 @@ router.post('/', async (req, res) => {
 		// Si addProduct devuelve un OBJ con la prop error, hay un error
 		if (returnedValue.status === 'Error')
 			return res.status(400).send({ returnedValue });
-		res.status(200).send({ sendProduct });
+		res.status(200).send({ status: 'Success', payload: sendProduct });
 	} catch (err) {
 		return res.status(400).send({ status: 'Error', message: { err } });
 	}
@@ -101,7 +116,7 @@ router.post(
 			}
 			sendProduct['status'] = 'false';
 
-			// Desesctructuracion para el envio sobre el metodo addProduct
+			// Desesctructuracion para el envio al metodo addProduct
 			const {
 				title,
 				description,
@@ -118,9 +133,10 @@ router.post(
 				(value) => value === ''
 			);
 			if (emptyField)
-				return res
-					.status(400)
-					.send({ status: 'Error', message: 'All fields are required' });
+				return res.status(400).send({
+					status: 'Error',
+					message: `The "${emptyField}" field is required`,
+				});
 
 			const returnedValue = await productManager.addProduct(
 				title,
@@ -133,7 +149,7 @@ router.post(
 				stock
 			);
 			console.log(returnedValue);
-			res.send(res.redirect('http://localhost:8080/api/products'));
+			res.send(res.redirect('http://localhost:8080/static'));
 		} catch (err) {
 			return res.status(400).send({ status: 'Error', message: { err } });
 		}
@@ -146,6 +162,12 @@ router.put('/:pid', async (req, res) => {
 	try {
 		const { pid } = req.params;
 		const productUpdate = req.body;
+
+		if (isNaN(parseInt(pid))) {
+			return res
+				.status(400)
+				.send({ status: 'Invalid limit value, must be a number' });
+		}
 
 		const updatedProduct = await productManager.updateProduct(
 			pid,
@@ -162,7 +184,13 @@ router.put('/:pid', async (req, res) => {
 
 router.delete('/:pid', async (req, res) => {
 	try {
-		const pid = parseInt(req.params.pid);
+		const { pid } = req.params;
+
+		if (isNaN(parseInt(pid))) {
+			return res
+				.status(400)
+				.send({ status: 'Invalid limit value, must be a number' });
+		}
 
 		const deletedProduct = await productManager.deleteProduct(pid);
 
