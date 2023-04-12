@@ -95,7 +95,7 @@ router.post('/', async (req, res) => {
 	}
 });
 
-// Metodo POST => FORM
+// Metodo POST => FORM http://localhost:8080/static/
 
 router.post(
 	'/form',
