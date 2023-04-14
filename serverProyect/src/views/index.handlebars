@@ -1,0 +1,17 @@
+<div>
+	<h1>Hola {{user.name}} {{user.lastname}}, que gusto verte!</h1>
+	<h2>Email: {{user.email}}</h2>
+	{{#if isAdmin}}
+		<h3>Admin</h3>
+		{{#each food}}
+			<div>
+				<p>{{this.name}}</p>
+				<p>{{this.price}}</p>
+			</div>
+		{{/each}}
+	{{else}}
+		<h3>User</h3>
+		<p>No tiene permisos para visualizar la lista de productos</p>
+	{{/if}}
+</div>
+<script src='/static/js/index.js'></script>
